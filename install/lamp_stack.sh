@@ -49,8 +49,6 @@ rm latest.tar.gz
 
 sudo rsync -avP ./wordpress/ /var/www/html/wordpress
 
-figlet $(ls /var/www/html/wordpress)
-
 sudo chown -R www-data:www-data /var/www/html/wordpress/
 
 sudo chmod 755 -R /var/www/html/wordpress
