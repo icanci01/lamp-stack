@@ -19,6 +19,8 @@ sudo apt install mariadb-server -y
 
 sudo mysql_secure_installation
 
+sudo mysql -u root -p < database.sql
+
 sudo apt update
 
 sudo apt upgrade -y
@@ -37,15 +39,17 @@ sudo cp wordpress.conf /etc/apache2/sites-available/wordpress.conf
 
 sudo mkdir wordpress
 
-cd
+cd wordpress
 
-wget -c https://wordpress.org/latest.tar.gz
+sudo get -c https://wordpress.org/latest.tar.gz
 
 tar -xvzf latest.tar.gz
 
 rm latest.tar.gz
 
-sudo rsync -avP ~/wordpress/ /var/www/html/wordpress
+sudo rsync -avP ./wordpress/ /var/www/html/wordpress
+
+figlet $(ls /var/www/html/wordpress)
 
 sudo chown -R www-data:www-data /var/www/html/wordpress/
 
